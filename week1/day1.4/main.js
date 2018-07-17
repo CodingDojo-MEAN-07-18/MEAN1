@@ -66,3 +66,35 @@ function sayHello(name, ...rest) {
 }
 
 sayHello('Jason', true, 'cats');
+
+// var count = 0;
+
+function counter() {
+  var count = 0;
+
+  function childScope() {
+    console.log('inside child scope');
+    return ++count;
+  }
+  return childScope();
+}
+
+counter = counter();
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log(counter());
+
+
+// childScope();
+// counter()
+// => 1
+// counter()
+// => 2
+// counter()
+// => 3
+// counter()
+// => 4
+// counter()
+// => 5
